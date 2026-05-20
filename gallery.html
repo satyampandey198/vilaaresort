@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gallery — Waters Edge Villa</title>
+<meta name="description" content="Explore the gallery of Waters Edge Villa — stunning photography of our estate, gardens, villas, and amenities."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .filter-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
+  .filter-btn { padding:8px 20px; border:1.5px solid var(--green); background:transparent; color:var(--green); font-family:var(--sans); font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; border-radius:var(--radius); transition:all var(--transition); }
+  .filter-btn.active, .filter-btn:hover { background:var(--green); color:var(--white); }
+  .gallery-item { display:block; }
+  .gallery-item.hidden { display:none; }
+  .gallery-caption { padding:12px 14px; background:var(--cream); font-size:0.8rem; color:var(--text-mid); }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo-wrap">
+    <img src="assets/logo.png" alt="Waters Edge Villa Logo" class="nav-logo-img"/>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="amenities.html">Amenities</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="btn-book">Enquire</a>
+</nav>
+
+<div class="page-hero">
+  <img src="images/hero_garden.png" alt="Waters Edge Villa Gallery" class="page-hero-bg"/>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="eyebrow">Estate Photography</p>
+    <h1>Gallery</h1>
+  </div>
+</div>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 48px;">
+      <p class="section-label">Visual Journey</p>
+      <h2 class="section-title">Through the Estate</h2>
+      <div class="section-underline" style="margin:0 auto 16px;"></div>
+      <p class="section-desc" style="max-width:100%;">A curated collection of photography capturing the beauty, tranquility, and luxury of Waters Edge Villa across every season.</p>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="gardens">Gardens</button>
+      <button class="filter-btn" data-filter="villas">Villas</button>
+      <button class="filter-btn" data-filter="nature">Nature Activity</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item large" data-cat="gardens">
+        <img src="images/hero_garden.png" alt="Estate Gardens at Twilight"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Estate Gardens at Twilight</div>
+      </div>
+      <div class="gallery-item" data-cat="nature">
+        <img src="images/lavender_field.png" alt="Lavender Corridor"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Lavender Corridor at Sunset</div>
+      </div>
+      <div class="gallery-item" data-cat="nature">
+        <img src="images/olive_grove.png" alt="Ancient Olive Grove"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">500-Year-Old Olive Grove</div>
+      </div>
+      <div class="gallery-item" data-cat="villas">
+        <img src="images/hero_amenities.png" alt="Villa Atrium"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Glass Atrium Villa Interior</div>
+      </div>
+      <div class="gallery-item large" data-cat="villas">
+        <img src="images/hero_home.png" alt="Evening Terrace Lounge"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Stone Terrace Evening Lounge</div>
+      </div>
+      <div class="gallery-item" data-cat="nature">
+        <img src="images/dining_table.png" alt="Estate Outdoor Activity"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Estate Nature Experience</div>
+      </div>
+      <div class="gallery-item" data-cat="nature">
+        <img src="images/spring_water.png" alt="Spring Water Garden"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Natural Spring Water Channels</div>
+      </div>
+      <div class="gallery-item" data-cat="gardens">
+        <img src="images/lavender_field.png" alt="Lavender at Golden Hour"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Lavender at Golden Hour</div>
+      </div>
+      <div class="gallery-item" data-cat="villas">
+        <img src="images/hero_amenities.png" alt="Private Villa Suite"/>
+        <div class="gallery-overlay"><span>⊕</span></div>
+        <div class="gallery-caption">Private Villa Suite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose">✕</button>
+  <button class="lightbox-prev" id="lbPrev">‹</button>
+  <img src="" alt="" id="lbImg"/>
+  <button class="lightbox-next" id="lbNext">›</button>
+</div>
+
+<!-- Video/Story Section -->
+<section style="background:var(--cream);padding:80px 0;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div class="reveal-left">
+        <p class="section-label">The Estate Story</p>
+        <h2 class="section-title">A Living Portrait</h2>
+        <div class="section-underline"></div>
+        <p class="section-desc">Every photograph in our gallery tells a story — of early morning mists, lavender harvests, candlelit dinners beneath the stars, and the profound stillness of an estate at rest. This is Waters Edge Villa.</p>
+        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Plan Your Visit</a>
+          <a href="amenities.html" class="btn-outline">View Amenities</a>
+        </div>
+      </div>
+      <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <img src="images/olive_grove.png" alt="Olive Grove" style="width:100%;height:200px;object-fit:cover;"/>
+        <img src="images/lavender_field.png" alt="Lavender" style="width:100%;height:200px;object-fit:cover;"/>
+        <img src="images/spring_water.png" alt="Spring" style="width:100%;height:200px;object-fit:cover;"/>
+        <img src="images/hero_garden.png" alt="Estate Gardens" style="width:100%;height:200px;object-fit:cover;"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container">
+    <h2>Begin Your Journey</h2>
+    <p>Discover the perfect harmony of nature and luxury. Schedule a private tour of our grounds.</p>
+    <div class="btns">
+      <a href="contact.html" class="btn-cream">Book a Private Tour</a>
+      <a href="amenities.html" class="btn-outline-white">Explore Amenities</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-wrap">
+          <img src="assets/logo.png" alt="Waters Edge Villa"/>
+          <span class="logo-text">Waters Edge Villa</span>
+        </a>
+        <p>An organic sanctuary dedicated to the art of deceleration and the preservation of natural heritage.</p>
+      </div>
+      <div><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="amenities.html">Amenities</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Waters Edge Villa. All Rights Reserved. An Organic Sanctuary.</p>
+      <span class="footer-eco">Carbon Neutral Properties</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40); });
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); nav.classList.toggle('open'); });
+
+  // Filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.classList.toggle('hidden', f !== 'all' && item.dataset.cat !== f);
+      });
+    });
+  });
+
+  // Lightbox
+  const images = Array.from(document.querySelectorAll('.gallery-item img'));
+  let current = 0;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  function openLb(i) { current = i; lbImg.src = images[i].src; lbImg.alt = images[i].alt; lb.classList.add('open'); }
+  document.querySelectorAll('.gallery-item').forEach((item, i) => {
+    item.addEventListener('click', () => openLb(i));
+  });
+  document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
+  document.getElementById('lbPrev').addEventListener('click', () => openLb((current - 1 + images.length) % images.length));
+  document.getElementById('lbNext').addEventListener('click', () => openLb((current + 1) % images.length));
+  lb.addEventListener('click', e => { if(e.target === lb) lb.classList.remove('open'); });
+
+  const observer = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal,.reveal-left').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

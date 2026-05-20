@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gardens — Lumina Villas</title>
+<meta name="description" content="Explore the botanical gardens at Lumina Villas — lavender fields, olive groves, heritage orchards, and natural spring water systems."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .garden-story { background:var(--white); }
+  .garden-story-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:72px; align-items:center; }
+  .season-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:56px; }
+  .season-card { text-align:center; padding:32px 20px; border-radius:8px; background:var(--off-white); transition:transform var(--transition), box-shadow var(--transition); }
+  .season-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+  .season-icon { font-size:2.4rem; margin-bottom:14px; }
+  .season-card h3 { font-family:var(--serif); font-size:1.1rem; color:var(--navy); margin-bottom:8px; }
+  .season-card p { font-size:0.83rem; color:var(--text-mid); line-height:1.65; }
+  .zone-section { background:var(--off-white); }
+  .zone-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:48px; }
+  .zone-card { position:relative; border-radius:10px; overflow:hidden; height:300px; cursor:pointer; }
+  .zone-card img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+  .zone-card:hover img { transform:scale(1.07); }
+  .zone-card-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(15,22,45,0.85) 0%, transparent 60%); display:flex; flex-direction:column; justify-content:flex-end; padding:28px; }
+  .zone-card-overlay h3 { font-family:var(--serif); font-size:1.3rem; color:var(--white); margin-bottom:6px; }
+  .zone-card-overlay p { font-size:0.83rem; color:rgba(255,255,255,0.8); line-height:1.6; }
+  .zone-tag { display:inline-block; background:var(--gold); color:var(--text-dark); padding:3px 12px; border-radius:50px; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; margin-bottom:10px; }
+  .masterplan { background:var(--white); }
+  .masterplan-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  .stat-box { background:var(--navy); color:var(--white); padding:28px 32px; border-radius:8px; margin-bottom:20px; }
+  .stat-box .num { font-family:var(--serif); font-size:2.4rem; color:var(--gold); font-weight:700; }
+  .stat-box .lbl { font-size:0.78rem; color:rgba(255,255,255,0.65); letter-spacing:0.08em; text-transform:uppercase; }
+  .stat-box p { font-size:0.85rem; color:rgba(255,255,255,0.7); margin-top:6px; line-height:1.6; }
+  .stat-boxes { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:900px){
+    .garden-story-grid{grid-template-columns:1fr;}
+    .season-grid{grid-template-columns:repeat(2,1fr);}
+    .zone-grid{grid-template-columns:1fr;}
+    .masterplan-inner{grid-template-columns:1fr;}
+    .stat-boxes{grid-template-columns:1fr;}
+  }
+  @media(max-width:480px){ .season-grid{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">Lumina<span>Villas</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="amenities.html">Amenities</a></li>
+    <li><a href="garden.html" class="active">Gardens</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="btn-book">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="height:65vh;">
+  <img src="images/hero_garden.png" alt="Lumina Villas Gardens" class="page-hero-bg"/>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="eyebrow">The Botanical Estate</p>
+    <h1>The Gardens</h1>
+  </div>
+</div>
+
+<!-- GARDEN STORY -->
+<section class="garden-story">
+  <div class="container">
+    <div class="garden-story-grid">
+      <div class="reveal-left">
+        <p class="section-label">Our Philosophy</p>
+        <h2 class="section-title">Gardens as <span>Living Art</span></h2>
+        <div class="section-underline"></div>
+        <p class="section-desc">The grounds of Lumina Villas are not manicured performances — they are cultivated ecosystems. Every tree, herb, and stone path has been placed in dialogue with the land's natural character.</p>
+        <br/>
+        <p style="font-size:0.9rem;color:var(--text-mid);line-height:1.8;">We work with the seasons, not against them. Our team of eight full-time botanists and landscape stewards care for over 12 hectares of living landscape, ensuring that each visit feels different from the last.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;">
+          <a href="contact.html" class="btn-primary">Book a Garden Walk</a>
+          <a href="amenities.html" class="btn-outline" style="color:var(--navy);border-color:var(--navy);">View All Amenities</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="garden-photo-grid">
+          <img src="images/lavender_field.png" alt="Lavender Fields" class="main-img"/>
+          <img src="images/olive_grove.png" alt="Olive Grove" class="side-img"/>
+          <img src="images/spring_water.png" alt="Spring Water" class="side-img"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS -->
+<section style="background:var(--navy);padding:80px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0;">
+      <p class="section-label" style="color:var(--gold);">Year-Round Beauty</p>
+      <h2 class="section-title" style="color:var(--white);">Gardens Through the Seasons</h2>
+      <div class="section-underline" style="margin:0 auto 16px;background:var(--gold);"></div>
+    </div>
+    <div class="season-grid">
+      <div class="season-card reveal">
+        <div class="season-icon">🌸</div>
+        <h3>Spring</h3>
+        <p>Wild blooms carpet the meadows. The herb garden reaches its most fragrant peak.</p>
+      </div>
+      <div class="season-card reveal">
+        <div class="season-icon">☀️</div>
+        <h3>Summer</h3>
+        <p>Lavender harvest season. Golden evenings in the olive grove. Pool afternoons.</p>
+      </div>
+      <div class="season-card reveal">
+        <div class="season-icon">🍂</div>
+        <h3>Autumn</h3>
+        <p>Olive harvest and press. Truffle walks through the eastern woodland reserve.</p>
+      </div>
+      <div class="season-card reveal">
+        <div class="season-icon">❄️</div>
+        <h3>Winter</h3>
+        <p>Bare-branch beauty reveals the architecture of ancient trees. Heated stone retreats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONES -->
+<section class="zone-section">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 56px;">
+      <p class="section-label">Explore by Zone</p>
+      <h2 class="section-title">Garden Rooms &amp; Zones</h2>
+      <div class="section-underline" style="margin:0 auto 16px;"></div>
+      <p class="section-desc" style="max-width:100%;">The estate is divided into seven distinct garden zones, each with its own character, microclimate, and purpose.</p>
+    </div>
+    <div class="zone-grid">
+      <div class="zone-card reveal">
+        <img src="images/lavender_field.png" alt="Lavender Corridor"/>
+        <div class="zone-card-overlay">
+          <span class="zone-tag">Zone 1</span>
+          <h3>The Lavender Corridor</h3>
+          <p>Four hundred metres of hand-planted lavender framing the main approach to the estate.</p>
+        </div>
+      </div>
+      <div class="zone-card reveal">
+        <img src="images/olive_grove.png" alt="Olive Grove"/>
+        <div class="zone-card-overlay">
+          <span class="zone-tag">Zone 2</span>
+          <h3>The Ancient Olive Grove</h3>
+          <p>500+ trees, some over 400 years old. Harvest each October for estate olive oil production.</p>
+        </div>
+      </div>
+      <div class="zone-card reveal">
+        <img src="images/spring_water.png" alt="Water Garden"/>
+        <div class="zone-card-overlay">
+          <span class="zone-tag">Zone 3</span>
+          <h3>The Spring Water Garden</h3>
+          <p>Natural limestone channels carry spring water through a series of terraced reflection pools.</p>
+        </div>
+      </div>
+      <div class="zone-card reveal">
+        <img src="images/hero_garden.png" alt="Wildflower Meadow"/>
+        <div class="zone-card-overlay">
+          <span class="zone-tag">Zone 4</span>
+          <h3>The Wildflower Meadow</h3>
+          <p>An unharvested meadow zone that supports migratory pollinators and native wildlife.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERPLAN -->
+<section class="masterplan">
+  <div class="container">
+    <div class="masterplan-inner">
+      <div class="reveal-left">
+        <p class="section-label">By the Numbers</p>
+        <h2 class="section-title">The Estate at a Glance</h2>
+        <div class="section-underline"></div>
+        <p class="section-desc">Two decades of careful cultivation have produced one of the most diverse private botanical estates in the Mediterranean region.</p>
+        <a href="contact.html" class="btn-primary" style="margin-top:32px;display:inline-block;">Schedule a Garden Tour</a>
+      </div>
+      <div class="reveal">
+        <div class="stat-boxes">
+          <div class="stat-box">
+            <span class="num">12ha</span>
+            <span class="lbl">Total Estate Area</span>
+            <p>Across seven distinct garden zones and three heritage woodland reserves.</p>
+          </div>
+          <div class="stat-box">
+            <span class="num">500+</span>
+            <span class="lbl">Olive Trees</span>
+            <p>Many over 400 years old, producing estate-pressed oil each autumn.</p>
+          </div>
+          <div class="stat-box">
+            <span class="num">80+</span>
+            <span class="lbl">Plant Species</span>
+            <p>Native Mediterranean botanicals documented and protected on the estate.</p>
+          </div>
+          <div class="stat-box">
+            <span class="num">100%</span>
+            <span class="lbl">Organic Inputs</span>
+            <p>Zero synthetic chemicals used. Spring-fed irrigation throughout the estate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARDEN FEATURES -->
+<section style="background:var(--off-white);">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 56px;">
+      <p class="section-label">Curated Experiences</p>
+      <h2 class="section-title">What to Do in the Gardens</h2>
+      <div class="section-underline" style="margin:0 auto 16px;"></div>
+    </div>
+    <div class="garden-features">
+      <div class="garden-feat-card reveal">
+        <div class="garden-feat-icon">🌄</div>
+        <h3>Dawn Herb Walks</h3>
+        <p>Join our resident botanist for a 90-minute dawn walk through the herb garden and lavender fields, guided by the rising light and morning birdsong.</p>
+      </div>
+      <div class="garden-feat-card reveal">
+        <div class="garden-feat-icon">🫒</div>
+        <h3>Olive Oil Tasting</h3>
+        <p>Sample the estate's own cold-pressed extra-virgin olive oils in the stone oil house, guided by our sommelier.</p>
+      </div>
+      <div class="garden-feat-card reveal">
+        <div class="garden-feat-icon">🌿</div>
+        <h3>Lavender Distillation</h3>
+        <p>In summer, join the lavender harvest and watch traditional steam distillation produce the estate's signature essential oil.</p>
+      </div>
+      <div class="garden-feat-card reveal">
+        <div class="garden-feat-icon">🦋</div>
+        <h3>Biodiversity Tour</h3>
+        <p>A guided tour of the wildflower meadow and migratory bird habitat zones — a truly rare ecological experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container" style="text-align:center;">
+    <h2>Begin Your Journey</h2>
+    <p>Discover the perfect harmony of nature and luxury. Schedule a private tour of our grounds and view our current availability.</p>
+    <div class="btns">
+      <a href="contact.html" class="btn-gold">Book a Private Tour</a>
+      <a href="amenities.html" class="btn-border-white">Explore All Amenities</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Lumina<span>Villas</span></a>
+        <p>A sanctuary where modern luxury meets the timeless wisdom of the earth.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="amenities.html">Amenities</a></li>
+          <li><a href="garden.html">Gardens</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Lumina Villas. All Rights Reserved. Organic Elegance Defined.</p>
+      <span class="footer-eco">Carbon Neutral Properties</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const ham = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); navLinks.classList.toggle('open'); });
+  const reveals = document.querySelectorAll('.reveal, .reveal-left');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

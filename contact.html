@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Waters Edge Villa</title>
+  <meta name="description"
+    content="Contact Waters Edge Villa to book a private tour, request estate information, or enquire about availability." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .faq-item {
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .faq-q .icon {
+      transition: transform var(--transition);
+      color: var(--green);
+      font-size: 1.1rem;
+    }
+
+    .faq-item.open .faq-q .icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-a p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-bottom: 18px;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+      letter-spacing: 0.05em;
+      border: 1.5px solid var(--cream-dark);
+      background: var(--white);
+      color: var(--green);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      background: var(--green);
+      color: var(--white);
+      border-color: var(--green);
+    }
+
+    .success-msg {
+      display: none;
+      background: var(--green-light);
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo-wrap">
+      <img src="assets/logo.png" alt="Waters Edge Villa Logo" class="nav-logo-img" />
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="amenities.html">Amenities</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn-book">Enquire</a>
+  </nav>
+
+  <div class="page-hero" style="height:50vh;">
+    <img src="images/hero_home.png" alt="Contact Waters Edge Villa" class="page-hero-bg" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <p class="eyebrow">Get in Touch</p>
+      <h1>Contact Us</h1>
+    </div>
+  </div>
+
+  <!-- STRIP -->
+  <div style="background:var(--green);padding:40px 0;text-align:center;">
+    <div class="container">
+      <p style="font-family:var(--serif);font-size:1.4rem;color:var(--white);">We'd Love to Hear From You</p>
+      <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;margin-top:6px;">Enquiries are answered within 24 hours.
+        For urgent requests, call us directly.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--cream);">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal-left">
+          <p class="section-label">Reach Us</p>
+          <h2 class="section-title">Plan Your Visit</h2>
+          <div class="section-underline"></div>
+          <p class="section-desc">Whether booking a private villa, scheduling a garden tour, or simply enquiring about
+            the estate, our team is ready to assist.</p>
+          <div style="margin-top:36px;">
+            <div class="c-item">
+              <div class="c-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
+                </svg></div>
+              <div class="c-text"><span>Location</span><strong>Provence-Alpes-Côte d'Azur, France</strong></div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                </svg></div>
+              <div class="c-text"><span>Phone</span><strong>+33 (0) 4 92 00 00 00</strong></div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg></div>
+              <div class="c-text"><span>Email</span><strong>reservations@watersedgevilla.com</strong></div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+                </svg></div>
+              <div class="c-text"><span>Reception Hours</span><strong>Daily 8:00 AM – 10:00 PM</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <p class="section-label">Send a Message</p>
+          <h3 style="font-family:var(--serif);font-size:1.4rem;color:var(--green);margin-bottom:28px;">Book a Private
+            Tour</h3>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName"
+                  placeholder="Jean" required /></div>
+              <div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName"
+                  placeholder="Dupont" required /></div>
+            </div>
+            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email"
+                placeholder="jean@example.com" required /></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone"
+                placeholder="+33 6 00 00 00 00" /></div>
+            <div class="form-row">
+              <div class="form-group"><label for="arrival">Arrival Date</label><input type="date" id="arrival" /></div>
+              <div class="form-group"><label for="departure">Departure Date</label><input type="date" id="departure" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="enquiry">Type of Enquiry</label>
+              <select id="enquiry">
+                <option value="">Select an option</option>
+                <option>Private Tour</option>
+                <option>Villa Reservation</option>
+                <option>Wedding &amp; Events</option>
+                <option>Spa &amp; Wellness</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="message">Your Message</label><textarea id="message"
+                placeholder="Tell us about your ideal stay..."></textarea></div>
+            <button type="submit" class="btn-submit" id="submitBtn">Send Enquiry</button>
+            <div class="success-msg" id="successMsg">✅ Thank you! We'll be in touch within 24 hours.</div>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <footer>
+        <div class="container">
+          <div class="footer-inner">
+            <div class="footer-brand">
+              <a href="index.html" class="logo-wrap"><img src="assets/logo.png" alt="Waters Edge Villa" /><span
+                  class="logo-text">Waters Edge Villa</span></a>
+              <p>An organic sanctuary dedicated to the art of deceleration and the preservation of natural heritage.</p>
+            </div>
+            <div>
+              <h4>Navigation</h4>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="amenities.html">Amenities</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>© 2024 Waters Edge Villa. All Rights Reserved. An Organic Sanctuary.</p>
+            <span class="footer-eco">Carbon Neutral Properties</span>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40); });
+        const ham = document.getElementById('hamburger'); const nav = document.getElementById('navLinks');
+        ham.addEventListener('click', () => { ham.classList.toggle('open'); nav.classList.toggle('open'); });
+        document.querySelectorAll('.faq-q').forEach(q => {
+          q.addEventListener('click', () => {
+            const item = q.parentElement; const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+          });
+        });
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+          const btn = document.getElementById('submitBtn');
+          btn.textContent = 'Sending…'; btn.disabled = true;
+          setTimeout(() => { document.getElementById('successMsg').style.display = 'block'; btn.textContent = 'Send Enquiry'; btn.disabled = false; this.reset(); }, 1200);
+        });
+        const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal,.reveal-left').forEach(el => observer.observe(el));
+      </script>
+</body>
+
+</html>
