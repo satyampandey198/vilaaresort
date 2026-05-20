@@ -45,10 +45,11 @@ body { font-family: var(--sans); color: var(--text-dark); background: var(--off-
 }
 .navbar.scrolled { height: 64px; box-shadow: 0 6px 32px rgba(26,92,58,0.14); top: 8px; }
 
-.nav-logo-wrap { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .nav-logo-img { height: 68px; width: auto; object-fit: contain; display: block; transition: var(--transition); filter: drop-shadow(0 2px 6px rgba(26,92,58,0.12)); }
 .navbar.scrolled .nav-logo-img { height: 56px; }
-.nav-logo-text { display: none; }
+.nav-logo-text { display: block; font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--green); letter-spacing: 0.02em; white-space: nowrap; transition: var(--transition); }
+.navbar.scrolled .nav-logo-text { font-size: 0.95rem; }
 
 .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
 .nav-links a {
