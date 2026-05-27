@@ -1,277 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Gallery — Waters Edge Villa</title>
-<meta name="description" content="Explore the gallery of Waters Edge Villa — stunning photography of our estate, gardens, villas, and amenities."/>
-<link rel="stylesheet" href="style.css"/>
-<style>
-  .filter-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
-  .filter-btn { padding:8px 20px; border:1.5px solid var(--green); background:transparent; color:var(--green); font-family:var(--sans); font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; border-radius:var(--radius); transition:all var(--transition); }
-  .filter-btn.active, .filter-btn:hover { background:var(--green); color:var(--white); }
-  .gallery-item { display:block; }
-  .gallery-item.hidden { display:none; }
-  .gallery-caption { padding:12px 14px; background:var(--cream); font-size:0.8rem; color:var(--text-mid); }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Waters Edge Villa</title>
+  <meta name="description"
+    content="Explore the gallery of Waters Edge Villa — stunning photography of our estate, gardens, villas, and amenities." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border: 1.5px solid var(--green);
+      background: transparent;
+      color: var(--green);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .gallery-item {
+      display: block;
+    }
+
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    .gallery-caption {
+      padding: 12px 14px;
+      background: var(--cream);
+      font-size: 0.8rem;
+      color: var(--text-mid);
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="navbar" id="navbar">
-  <a href="index.html" class="nav-logo-wrap">
-    <img src="assets/logo.png" alt="Waters Edge Villa Logo" class="nav-logo-img"/>
-    <span class="nav-logo-text">Waters Edge Villa</span>
-  </a>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="amenities.html">Amenities</a></li>
-    <li><a href="gallery.html" class="active">Gallery</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="contact.html" class="btn-book">Enquire</a>
-</nav>
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo-wrap">
+      <img src="assets/logo.png" alt="Waters Edge Villa Logo" class="nav-logo-img" />
+      <span class="nav-logo-text">Waters Edge Villa</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="amenities.html">Amenities</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn-book">Enquire</a>
+  </nav>
 
-<div class="page-hero">
-  <img src="images/Garden_1.jpg" alt="Waters Edge Villa Gallery" class="page-hero-bg"/>
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <p class="eyebrow">Estate Photography</p>
-    <h1>Gallery</h1>
-  </div>
-</div>
-
-<section style="background:var(--white);">
-  <div class="container">
-    <div style="text-align:center;max-width:560px;margin:0 auto 48px;">
-      <p class="section-label">Visual Journey</p>
-      <h2 class="section-title">Through the Estate</h2>
-      <div class="section-underline" style="margin:0 auto 16px;"></div>
-      <p class="section-desc" style="max-width:100%;">A curated collection of photography capturing the beauty, tranquility, and luxury of Waters Edge Villa across every season.</p>
-    </div>
-
-    <!-- Filter -->
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="gardens">Gardens</button>
-      <button class="filter-btn" data-filter="villas">Villas</button>
-      <button class="filter-btn" data-filter="rooms">Rooms</button>
-    </div>
-
-    <!-- Gallery Grid -->
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item large" data-cat="gardens">
-        <img src="images/Garden_1.jpg" alt="Estate Gardens at Twilight"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Estate Gardens at Twilight</div>
-      </div>
-      <div class="gallery-item" data-cat="rooms">
-        <img src="images/Room_1.jpg" alt="Luxury Suite Interior"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Luxury Suite Interior</div>
-      </div>
-      <div class="gallery-item" data-cat="villas">
-        <img src="images/Villa_1.jpg" alt="Villa Exterior View"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Lakeside Villa Exterior</div>
-      </div>
-      <div class="gallery-item" data-cat="gardens">
-        <img src="images/Garden_2.jpg" alt="Lakeside Lawns"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Lakeside Lawns</div>
-      </div>
-      <div class="gallery-item" data-cat="rooms">
-        <img src="images/Room_2.jpg" alt="Deluxe Room Decor"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Deluxe Room Decor</div>
-      </div>
-      <div class="gallery-item large" data-cat="villas">
-        <img src="images/Villa_2.jpg" alt="Evening Villa Frontage"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Evening Villa Frontage</div>
-      </div>
-      <div class="gallery-item" data-cat="gardens">
-        <img src="images/Garden_3.jpg" alt="Tropical Walking Path"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Tropical Walking Path</div>
-      </div>
-      <div class="gallery-item" data-cat="rooms">
-        <img src="images/Room_3.jpg" alt="Premium Bedroom View"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Premium Bedroom View</div>
-      </div>
-      <div class="gallery-item" data-cat="villas">
-        <img src="images/Villa_3.jpg" alt="Lakeside Lounge Area"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Lakeside Lounge Area</div>
-      </div>
-      <div class="gallery-item large" data-cat="gardens">
-        <img src="images/Garden_4.jpg" alt="Lakeside Promenade Walkway"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Lakeside Promenade Walkway</div>
-      </div>
-      <div class="gallery-item" data-cat="rooms">
-        <img src="images/Room_4.jpg" alt="Elegant Bed Chamber"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Elegant Bed Chamber</div>
-      </div>
-      <div class="gallery-item" data-cat="villas">
-        <img src="images/Villa_4.jpg" alt="Lakeside Balcony View"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Lakeside Balcony View</div>
-      </div>
-      <div class="gallery-item" data-cat="gardens">
-        <img src="images/Garden_5.jpg" alt="Scenic Sunset Lawn"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Scenic Sunset Lawn</div>
-      </div>
-      <div class="gallery-item" data-cat="rooms">
-        <img src="images/Room_5.jpg" alt="Cozy Room Corner"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Cozy Room Corner</div>
-      </div>
-      <div class="gallery-item large" data-cat="rooms">
-        <img src="images/Room_6.jpg" alt="Spacious Master Suite"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Spacious Master Suite</div>
-      </div>
-      <div class="gallery-item" data-cat="gardens">
-        <img src="images/Garden_6.jpg" alt="Beautifully Landscaped Greenery"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Beautifully Landscaped Greenery</div>
-      </div>
-      <div class="gallery-item" data-cat="rooms">
-        <img src="images/Room_7.jpg" alt="Lakeside Suite Bed"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Lakeside Suite Bed</div>
-      </div>
-      <div class="gallery-item" data-cat="rooms">
-        <img src="images/Room_8.jpg" alt="Warm Cozy Interior lighting"/>
-        <div class="gallery-overlay"><span>⊕</span></div>
-        <div class="gallery-caption">Warm Cozy Interior lighting</div>
-      </div>
+  <div class="page-hero">
+    <img src="images/Garden_1.jpg" alt="Waters Edge Villa Gallery" class="page-hero-bg" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <p class="eyebrow">Estate Photography</p>
+      <h1>Gallery</h1>
     </div>
   </div>
-</section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lbClose">✕</button>
-  <button class="lightbox-prev" id="lbPrev">‹</button>
-  <img src="" alt="" id="lbImg"/>
-  <button class="lightbox-next" id="lbNext">›</button>
-</div>
+  <section style="background:var(--white);">
+    <div class="container">
+      <div style="text-align:center;max-width:560px;margin:0 auto 48px;">
+        <p class="section-label">Visual Journey</p>
+        <h2 class="section-title">Through the Estate</h2>
+        <div class="section-underline" style="margin:0 auto 16px;"></div>
+        <p class="section-desc" style="max-width:100%;">A curated collection of photography capturing the beauty,
+          tranquility, and luxury of Waters Edge Villa across every season.</p>
+      </div>
 
-<!-- Video/Story Section -->
-<section style="background:var(--cream);padding:80px 0;">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-      <div class="reveal-left">
-        <p class="section-label">The Estate Story</p>
-        <h2 class="section-title">A Living Portrait</h2>
-        <div class="section-underline"></div>
-        <p class="section-desc">Every photograph in our gallery tells a story — of early morning mists, beautiful sunsets, candlelit dinners beneath the stars, and the profound stillness of an estate at rest. This is Waters Edge Villa.</p>
-        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn-primary">Plan Your Visit</a>
-          <a href="amenities.html" class="btn-outline">View Amenities</a>
+      <!-- Filter -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="gardens">Gardens</button>
+        <button class="filter-btn" data-filter="villas">Villas</button>
+        <button class="filter-btn" data-filter="rooms">Rooms</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item large" data-cat="gardens">
+          <img src="images/Garden_1.jpg" alt="Estate Gardens at Twilight" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Estate Gardens at Twilight</div>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="images/13.jpg" alt="Luxury Suite Interior" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Luxury Suite Interior</div>
+        </div>
+        <div class="gallery-item" data-cat="villas">
+          <img src="images/Villa_1.jpg" alt="Villa Exterior View" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Villa Exterior</div>
+        </div>
+        <div class="gallery-item" data-cat="gardens">
+          <img src="images/Garden_2.jpg" alt="Lakeside Lawns" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Lakeside Lawns</div>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="images/Room_2.jpg" alt="Deluxe Room Decor" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Balcony Sitting</div>
+        </div>
+        <div class="gallery-item large" data-cat="villas">
+          <img src="images/10.jpg" alt="Evening Villa Frontage" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Evening Villa Frontage</div>
+        </div>
+        <div class="gallery-item" data-cat="gardens">
+          <img src="images/11.jpg" alt="Tropical Walking Path" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Tropical Walking Path</div>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="images/12.jpg" alt="Premium Bedroom View" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Premium Bedroom View</div>
+        </div>
+        <div class="gallery-item" data-cat="villas">
+          <img src="images/17.jpg" alt="Lakeside Lounge Area" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Open Lounge Area</div>
+        </div>
+        <div class="gallery-item large" data-cat="gardens">
+          <img src="images/Garden_5.jpg" alt="Lakeside Promenade Walkway" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Lakeside Promenade Walkway</div>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="images/1.jpg" alt="Elegant Bed Chamber" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Elegant Bed Chamber</div>
+        </div>
+        <div class="gallery-item" data-cat="villas">
+          <img src="images/2.png" alt="Lakeside Balcony View" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Lakeside Balcony View</div>
+        </div>
+        <div class="gallery-item" data-cat="gardens">
+          <img src="images/Garden_5.jpg" alt="Scenic Sunset Lawn" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Scenic Sunset Lawn</div>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="images/Room_5.jpg" alt="Cozy Room Corner" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Cozy Room Corner</div>
+        </div>
+        <div class="gallery-item large" data-cat="rooms">
+          <img src="images/Room_6.jpg" alt="Spacious Master Suite" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Spacious Master Suite</div>
+        </div>
+        <div class="gallery-item" data-cat="gardens">
+          <img src="images/Garden_6.jpg" alt="Beautifully Landscaped Greenery" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Beautifully Landscaped Greenery</div>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="images/5.jpg" alt="Lakeside Suite Bed" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Lakeside Suite Bed</div>
+        </div>
+        <div class="gallery-item" data-cat="rooms">
+          <img src="images/Room_9.jpg" alt="Warm Cozy Interior lighting" />
+          <div class="gallery-overlay"><span>⊕</span></div>
+          <div class="gallery-caption">Warm Cozy Interior lighting</div>
         </div>
       </div>
-      <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-        <img src="images/Villa_1.jpg" alt="Villa front" style="width:100%;height:200px;object-fit:cover;"/>
-        <img src="images/Room_9.jpg" alt="Luxury Room" style="width:100%;height:200px;object-fit:cover;"/>
-        <img src="images/Garden_2.jpg" alt="Lakeside lawn" style="width:100%;height:200px;object-fit:cover;"/>
-        <img src="images/Villa_2.jpg" alt="Villa Exterior" style="width:100%;height:200px;object-fit:cover;"/>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="cta-band">
-  <div class="container">
-    <h2>Begin Your Journey</h2>
-    <p>Discover the perfect harmony of nature and luxury. Schedule a private tour of our grounds.</p>
-    <div class="btns">
-      <a href="contact.html" class="btn-cream">Book a Private Tour</a>
-      <a href="amenities.html" class="btn-outline-white">Explore Amenities</a>
-    </div>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <button class="lightbox-prev" id="lbPrev">‹</button>
+    <img src="" alt="" id="lbImg" />
+    <button class="lightbox-next" id="lbNext">›</button>
   </div>
-</div>
 
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="logo-wrap">
-          <img src="assets/logo.png" alt="Waters Edge Villa"/>
-        </a>
-        <div class="footer-address">
-          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
-          <p>Pawana lake, near Apti village, Pawana lake, Apati, Maharashtra 410401</p>
-        </div>
-        <div class="footer-contact-connect">
-          <div class="footer-phone">
-            <span class="footer-label">Contact Us:</span>
-            <a href="tel:+919619929943">096199 29943</a>
+  <!-- Video/Story Section -->
+  <section style="background:var(--cream);padding:80px 0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+        <div class="reveal-left">
+          <p class="section-label">The Estate Story</p>
+          <h2 class="section-title">A Living Portrait</h2>
+          <div class="section-underline"></div>
+          <p class="section-desc">Every photograph in our gallery tells a story — of early morning mists, beautiful
+            sunsets, candlelit dinners beneath the stars, and the profound stillness of an estate at rest. This is
+            Waters Edge Villa.</p>
+          <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="contact.html" class="btn-primary">Plan Your Visit</a>
+            <a href="amenities.html" class="btn-outline">View Amenities</a>
           </div>
-          <span class="footer-connect-sep">|</span>
-          <div class="footer-social-wrap">
-            <span class="footer-label">Connect Us:</span>
-            <div class="footer-social">
-              <a href="#" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-              </a>
-              <a href="#" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </a>
+        </div>
+        <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <img src="images/Villa_1.jpg" alt="Villa front" style="width:100%;height:200px;object-fit:cover;" />
+          <img src="images/Room_9.jpg" alt="Luxury Room" style="width:100%;height:200px;object-fit:cover;" />
+          <img src="images/Garden_2.jpg" alt="Lakeside lawn" style="width:100%;height:200px;object-fit:cover;" />
+          <img src="images/Villa_2.jpg" alt="Villa Exterior" style="width:100%;height:200px;object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <h2>Begin Your Journey</h2>
+      <p>Discover the perfect harmony of nature and luxury. Schedule a private tour of our grounds.</p>
+      <div class="btns">
+        <a href="contact.html" class="btn-cream">Book a Private Tour</a>
+        <a href="amenities.html" class="btn-outline-white">Explore Amenities</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-wrap">
+            <img src="assets/logo.png" alt="Waters Edge Villa" />
+          </a>
+          <div class="footer-address">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
+            </svg>
+            <p>Pawana lake, near Apti village, Pawana lake, Apati, Maharashtra 410401</p>
+          </div>
+          <div class="footer-contact-connect">
+            <div class="footer-phone">
+              <span class="footer-label">Contact Us:</span>
+              <a href="tel:+919619929943">096199 29943</a>
+            </div>
+            <span class="footer-connect-sep">|</span>
+            <div class="footer-social-wrap">
+              <span class="footer-label">Connect Us:</span>
+              <div class="footer-social">
+                <a href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                  </svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
+        <div>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
       </div>
-      <div><ul><li><a href="index.html">Home</a></li><li><a href="amenities.html">Amenities</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p>© 2026 Waters Edge Villa. All Rights Reserved.</p>
+        <span class="sep">|</span>
+        <p>Designed by Occean Bridge</p>
+      </div>
     </div>
-    <hr class="footer-divider" />
-    <div class="footer-bottom">
-      <p>© 2026 Waters Edge Villa. All Rights Reserved.</p>
-      <span class="sep">|</span>
-      <p>Designed by Occean Bridge</p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40); });
-  const ham = document.getElementById('hamburger');
-  const nav = document.getElementById('navLinks');
-  ham.addEventListener('click', () => { ham.classList.toggle('open'); nav.classList.toggle('open'); });
+  <script>
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40); });
+    const ham = document.getElementById('hamburger');
+    const nav = document.getElementById('navLinks');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); nav.classList.toggle('open'); });
 
-  // Filter
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      document.querySelectorAll('.gallery-item').forEach(item => {
-        item.classList.toggle('hidden', f !== 'all' && item.dataset.cat !== f);
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          item.classList.toggle('hidden', f !== 'all' && item.dataset.cat !== f);
+        });
       });
     });
-  });
 
-  // Lightbox
-  const images = Array.from(document.querySelectorAll('.gallery-item img'));
-  let current = 0;
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  function openLb(i) { current = i; lbImg.src = images[i].src; lbImg.alt = images[i].alt; lb.classList.add('open'); }
-  document.querySelectorAll('.gallery-item').forEach((item, i) => {
-    item.addEventListener('click', () => openLb(i));
-  });
-  document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
-  document.getElementById('lbPrev').addEventListener('click', () => openLb((current - 1 + images.length) % images.length));
-  document.getElementById('lbNext').addEventListener('click', () => openLb((current + 1) % images.length));
-  lb.addEventListener('click', e => { if(e.target === lb) lb.classList.remove('open'); });
+    // Lightbox
+    const images = Array.from(document.querySelectorAll('.gallery-item img'));
+    let current = 0;
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    function openLb(i) { current = i; lbImg.src = images[i].src; lbImg.alt = images[i].alt; lb.classList.add('open'); }
+    document.querySelectorAll('.gallery-item').forEach((item, i) => {
+      item.addEventListener('click', () => openLb(i));
+    });
+    document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
+    document.getElementById('lbPrev').addEventListener('click', () => openLb((current - 1 + images.length) % images.length));
+    document.getElementById('lbNext').addEventListener('click', () => openLb((current + 1) % images.length));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
 
-  const observer = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal,.reveal-left').forEach(el => observer.observe(el));
-</script>
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal,.reveal-left').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>
